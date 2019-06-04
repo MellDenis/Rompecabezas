@@ -30,10 +30,10 @@ function mostrarInstrucciones(instrucciones) {
 
 /* COMPLETAR: Crear función que agregue la última dirección al arreglo de movimientos
 y utilice actualizarUltimoMovimiento para mostrarlo en pantalla */
-function lastMovimiento(ultimaDireccion){
-  movimientos.push(ultimaDireccion);
-  actualizarUltimoMovimiento(ultimaDireccion);
-  console.log(ultimaDireccion);
+function lastMovimiento(ultimoMovimiento){
+  movimientos.push(ultimoMovimiento);
+  actualizarUltimoMovimiento(ultimoMovimiento);
+  console.log(ultimoMovimiento);
 }
 
 /* Esta función va a chequear si el Rompecabezas esta en la posicion ganadora. 
@@ -116,12 +116,14 @@ function moverEnDireccion(direccion) {
     
   // Mueve pieza hacia la derecha, reemplazandola con la blanca
   else if (direccion === codigosDireccion.DERECHA) {
-    //COMPLETAR
+    nuevaFilaPiezaVacia = filaVacia - 1;
+    nuevaColumnaPiezaVacia = columnaVacia;
   }
     
   // Mueve pieza hacia la izquierda, reemplazandola con la blanca
   else if (direccion === codigosDireccion.IZQUIERDA) {
-    // COMPLETAR
+    nuevaFilaPiezaVacia = filaVacia + 1;
+    nuevaColumnaPiezaVacia = columnaVacia;
   }
 
   /* A continuación se chequea si la nueva posición es válida, si lo es, se intercambia. 
@@ -131,8 +133,9 @@ function moverEnDireccion(direccion) {
     if (posicionValida(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia)) {
         intercambiarPosiciones(filaVacia, columnaVacia, nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
-
-  //COMPLETAR: Agregar la dirección del movimiento al arreglo de movimientos
+        
+      //COMPLETAR: Agregar la dirección del movimiento al arreglo de movimientos
+      movimientos.push(direccion);
 
     }
 }

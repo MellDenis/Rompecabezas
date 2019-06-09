@@ -30,10 +30,10 @@ function mostrarInstrucciones(instrucciones) {
 
 /* COMPLETAR: Crear función que agregue la última dirección al arreglo de movimientos
 y utilice actualizarUltimoMovimiento para mostrarlo en pantalla */
-function lastMovimiento(ultimoMovimiento){
-  movimientos.push(ultimoMovimiento);
-  actualizarUltimoMovimiento(ultimoMovimiento);
-  console.log(ultimoMovimiento);
+function lastMovimiento(direccion){
+  movimientos.push(direccion);
+  actualizarUltimoMovimiento(direccion);
+  console.log(direccion);
 }
 
 /* Esta función va a chequear si el Rompecabezas esta en la posicion ganadora. 
@@ -135,7 +135,7 @@ function moverEnDireccion(direccion) {
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         
       //COMPLETAR: Agregar la dirección del movimiento al arreglo de movimientos
-      movimientos.push(direccion);
+      lastMovimiento(direccion);
 
     }
 }

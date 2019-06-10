@@ -89,6 +89,17 @@ h3{
   height: 600px;
 }
 
+.swal-title {
+  margin: 0px;
+  font-size: 16px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.21);
+  margin-bottom: 28px;
+}
+
+.swal-overlay {
+  background-color: rgba(43, 165, 137, 0.45);
+}
+
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }

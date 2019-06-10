@@ -44,22 +44,24 @@ function chequearSiGano() {
     [4, 5, 6],
     [7, 8, 9]
   ];
-  var flag = true;
   
   for (let i = 0; i < grilla.length; i++) {
     for (let j = 0; j < grilla[i].length; j++) {
       if (grilla[i][j] === grillaWin[i][j]) {
-        flag = false;
+      }
+      else{
+        return false;
       }
     }
   }
+  true;
+  mostrarCartelGanador();
   console.log(grilla);
-  return flag;
 }
 
 // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
 function mostrarCartelGanador() {
-  swal("Felicitaciones", "Lo lograste :)", "Fin");
+  swal("Felicitaciones!", "Lo lograste :)");
     //alert("Lo lograste!!");
 }
 
@@ -89,11 +91,13 @@ function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
 
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna) {
-  var flag = false;
-    if ((fila <= 0 && fila >= 2) && (columna <= 0 && columna >= 2)) {
-      flag = true;
-    }
-  return flag;  
+  var flag = true;
+  if ((fila >= 0 && fila <= 2) && (columna >= 0 && columna <= 2)) {
+    return true;
+  }
+  else{
+    return false;
+  } 
 }
 
 /* Movimiento de fichas, en este caso la que se mueve es la blanca intercambiando su posición con otro elemento.
@@ -116,14 +120,14 @@ function moverEnDireccion(direccion) {
     
   // Mueve pieza hacia la derecha, reemplazandola con la blanca
   else if (direccion === codigosDireccion.DERECHA) {
-    nuevaFilaPiezaVacia = filaVacia - 1;
-    nuevaColumnaPiezaVacia = columnaVacia;
+    nuevaColumnaPiezaVacia = columnaVacia -1;
+    nuevaFilaPiezaVacia = filaVacia;
   }
     
   // Mueve pieza hacia la izquierda, reemplazandola con la blanca
   else if (direccion === codigosDireccion.IZQUIERDA) {
-    nuevaFilaPiezaVacia = filaVacia + 1;
-    nuevaColumnaPiezaVacia = columnaVacia;
+    nuevaColumnaPiezaVacia = columnaVacia + 1;
+    nuevaFilaPiezaVacia = filaVacia;
   }
 
   /* A continuación se chequea si la nueva posición es válida, si lo es, se intercambia. 
